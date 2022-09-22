@@ -13,18 +13,27 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Main admin page controller
+ */
 final class DashboardController extends AbstractDashboardController
 {
     public function __construct(private AdminUrlGenerator $adminUrlGenerator)
     {
     }
 
+    /**
+     * Common settings for dashboard
+     */
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
             ->setTitle('Test Project');
     }
 
+    /**
+     * Configure menu items
+     */
     public function configureMenuItems(): iterable
     {
         // News section
@@ -33,6 +42,9 @@ final class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('News Items', 'fas fa-key', NewsItem::class);
     }
 
+    /**
+     * The index page. Redirect to news page by default
+     */
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {

@@ -26,26 +26,41 @@ class Category extends AbstractDatabaseEntity
     #[Gedmo\Slug(fields: ['name'])]
     protected string $slug;
 
+    /**
+     * Returns category name when cast to string
+     */
     public function __toString(): string
     {
         return $this->getName();
     }
 
+    /**
+     * Returns category name
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * Returns slug
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * Returns true if category is active
+     */
     public function isActive(): bool
     {
         return $this->active;
     }
 
+    /**
+     * Sets active
+     */
     public function setActive(bool $active): self
     {
         $this->active = $active;
@@ -53,6 +68,9 @@ class Category extends AbstractDatabaseEntity
         return $this;
     }
 
+    /**
+     * Sets category name
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -60,12 +78,13 @@ class Category extends AbstractDatabaseEntity
         return $this;
     }
 
+    /**
+     * Sets slug. Slug is generates automatically by Geedmo sluggable
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
 
         return $this;
     }
-
-
 }

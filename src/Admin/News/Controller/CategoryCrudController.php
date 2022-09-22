@@ -10,13 +10,22 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * News category CRUD controller
+ */
 class CategoryCrudController extends AbstractCrudController
 {
+    /**
+     * Returns entity Fqcn
+     */
     public static function getEntityFqcn(): string
     {
         return Category::class;
     }
 
+    /**
+     * Configure form fields
+     */
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')->onlyOnIndex();

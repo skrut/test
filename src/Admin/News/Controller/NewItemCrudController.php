@@ -12,6 +12,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * News item CRUD controller
+ */
 class NewItemCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -19,6 +22,9 @@ class NewItemCrudController extends AbstractCrudController
         return NewsItem::class;
     }
 
+    /**
+     * Returns form fields
+     */
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')->onlyOnIndex();

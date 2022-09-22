@@ -33,31 +33,49 @@ class NewsItem extends AbstractDatabaseEntity
     #[Gedmo\Slug(fields: ['name'])]
     protected string $slug;
 
+    /**
+     * Returns new item category
+     */
     public function getCategory(): Category
     {
         return $this->category;
     }
 
+    /**
+     * Returns content
+     */
     public function getContent(): string
     {
         return $this->content;
     }
 
+    /**
+     * Returns name
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * Returns slug
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * Returns true if new item is active
+     */
     public function isActive(): bool
     {
         return $this->active;
     }
 
+    /**
+     * Sets active
+     */
     public function setActive(bool $active): self
     {
         $this->active = $active;
@@ -65,6 +83,9 @@ class NewsItem extends AbstractDatabaseEntity
         return $this;
     }
 
+    /**
+     * Sets category
+     */
     public function setCategory(Category $category): self
     {
         $this->category = $category;
@@ -72,6 +93,9 @@ class NewsItem extends AbstractDatabaseEntity
         return $this;
     }
 
+    /**
+     * Sets content
+     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -79,6 +103,9 @@ class NewsItem extends AbstractDatabaseEntity
         return $this;
     }
 
+    /**
+     * Sets name
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -86,6 +113,9 @@ class NewsItem extends AbstractDatabaseEntity
         return $this;
     }
 
+    /**
+     * Sets slug. Slug is generates automatically by Geedmo sluggable
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
